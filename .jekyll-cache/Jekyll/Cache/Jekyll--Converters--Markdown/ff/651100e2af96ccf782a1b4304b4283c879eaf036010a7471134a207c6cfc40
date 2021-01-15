@@ -1,0 +1,2 @@
+I"<p>ES6 introduces the <code class="language-plaintext highlighter-rouge">const</code> keyword. One issue I’ve seen raised a few times by people who are skilled with Javascript but unfamiliar with ES6 is confusion because when an object is defined using const it is not immutable.</p>
+:ET

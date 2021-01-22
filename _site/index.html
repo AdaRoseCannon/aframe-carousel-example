@@ -5,23 +5,55 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="style.css">
 	<title>Document</title>
+	<!-- <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+	<script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script> -->
+	<script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+	<script src="https://unpkg.com/aframe-orbit-controls@1.2.0/dist/aframe-orbit-controls.min.js"></script> 
+	<script src="./index.js"></script>
 </head>
 <body>
-	<header>
-		<h1>Ada Rose Cannon's Blog</h1>
-	</header>
-	<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-	<script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
 	<section aria-roledescription="carousel" aria-label="XR Demo Reel">
 		<h2 style="text-align: left;display: inline-block;padding: 0; position: absolute;">Demos</h2>
+		<a-scene embedded style="position: absolute;">
+			<a-camera look-controls orbit-controls="target: 0 0 0; enablePan: false; minDistance: 0.5; maxDistance: 4; initialPosition: 1 0.2 1">
+			</a-camera>
+			<a-entity id="lazy-susan" position="0 0 5" data-rotate-by="180.0">
+				
+				<a-entity
+					data-rotation="0.0"
+					rotation="0 0.0 0"
+				>
+					<a-entity position="0 0 -5">
+						<a-gltf-model src="./assets/basketball.glb" normalize-size="1"></a-gltf-model>
+					</a-entity>
+				</a-entity>
+				
+				<a-entity
+					data-rotation="180.0"
+					rotation="0 180.0 0"
+				>
+					<a-entity position="0 0 -5">
+						<a-gltf-model src="./assets/xrgarden.glb" normalize-size="10"></a-gltf-model>
+					</a-entity>
+				</a-entity>
+				
+			</a-entity>
+		</a-scene>
 		<div class="carousel-controls">
-			<button aria-controls="carousel-items" aria-label="Previous Demo">&lt;</button>
-			<button aria-controls="carousel-items" aria-label="Next Slide">&gt;</button>
+			<button aria-controls="carousel-items" id="prev-slide" aria-label="Previous Demo">&lt;</button>
+			<button aria-controls="carousel-items" id="next-slide" aria-label="Next Slide">&gt;</button>
 		</div>
 		<div id="carousel-items">
 			
-			<div class="carousel-item" id="ar-basketball-demo" aria-label="1 of 1" role="group" aria-roledescription="slide">
-				<div class="demo-content"><model-viewer style="filter: var(--shadow);" src="/assets/basketball.glb" camera-controls camera-orbit="33.84deg 79.48deg 2.811m" min-camera-orbit="auto auto auto" max-camera-orbit="auto auto 2.811m"></model-viewer></div>
+			<div class="carousel-item" id="xr-garden" aria-label="1 of 2" role="group" aria-roledescription="slide">
+				<div class="carousel-caption">
+					<!-- <h3><a href="/demos/xrgarden">XR Garden</a></h3> -->
+					<p><p>Relax in this augmented reality garden.</p>
+</p>
+				</div>
+			</div>
+			
+			<div class="carousel-item" id="ar-basketball-demo" aria-label="2 of 2" role="group" aria-roledescription="slide">
 				<div class="carousel-caption">
 					<!-- <h3><a href="/demos/basketball">AR Basketball Demo</a></h3> -->
 					<p><p>Play Augmented reality basketball right in your browser!</p>
